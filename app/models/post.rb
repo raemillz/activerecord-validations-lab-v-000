@@ -5,8 +5,12 @@ class Post < ActiveRecord::Base
   validates :category, inclusion: {in: %w(Fiction Non-Fiction)}
   validate :clickbait
 
+  clickbait_options = ["Won't Believe",
+                      "Secret",
+                      "Top [number]"
+                      "Guess"]
   def clickbait
-    if title: != "Won't Believe"  || title: != "Secret" || title: != "Top [number]" || title: !=  "Guess"
+    unless (Post.title.chars-clickbait_options).any?
       false
     end
   end
