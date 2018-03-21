@@ -10,8 +10,7 @@ class Post < ActiveRecord::Base
                       "Top [number]",
                       "Guess"]
   def clickbait
-    @post = Post.find(params[:id])
-    unless (@post.title.chars-clickbait_options).any?
+    unless clickbait_options.any? {|c| c.match title}
       false
     end
   end
