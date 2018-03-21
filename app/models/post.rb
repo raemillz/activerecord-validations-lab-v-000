@@ -6,8 +6,8 @@ class Post < ActiveRecord::Base
   validate :clickbait
 
   def clickbait
-    if :title == "Won't Believe"  || :title == "Secret" || :title == "Top [number]" || :title ==  "Guess"
-      true
+    if :title != "Won't Believe"  || :title != "Secret" || :title != "Top [number]" || :title !=  "Guess"
+      false
     end
   end
 
