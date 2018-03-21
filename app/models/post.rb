@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
 
   clickbait_options = ["Won't Believe",
                       "Secret",
-                      "Top [number]"
+                      "Top [number]",
                       "Guess"]
   def clickbait
     unless (Post.title.chars-clickbait_options).any?
