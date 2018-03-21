@@ -10,7 +10,7 @@ class Post < ActiveRecord::Base
                       "Top [number]",
                       "Guess"]
   def clickbait
-    unless CLICKBAIT_OPTIONS.any? {|c| c.match title}
+    if CLICKBAIT_OPTIONS.none? {|c| c.match title}
       false
     end
   end
